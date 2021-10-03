@@ -1,0 +1,48 @@
+<div class="body">
+  <H1>Trello</H1>
+
+  <form>
+    <div class="wrapper">
+      <h4>Log in to Trello</h4>
+
+      <div class="form-control" [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}">
+        <input id="email" type="email" placeholder="Enter email" formControlName="email">
+        <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="validation">
+          <small *ngIf="form.get('email')?.errors?.required">
+            Enter the email field
+          </small>
+          <small *ngIf="form.get('email')?.errors?.email">
+            Please enter a valid email
+          </small>
+        </div>
+      </div>
+
+      <div class="form-control" [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}">
+        <input id="password" type="password" placeholder="Enter password" formControlName="password">
+        <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="validation">
+          <small *ngIf="form.get('password')?.errors?.required">
+            A password is required
+          </small>
+          <small *ngIf="form.get('password')?.errors?.minlength">
+            Password must be at least
+            {{ form.get('password')?.errors?.minlength.requiredLength }} characters
+          </small>
+        </div>
+      </div>
+
+      <!--  [disabled]="form.invalid || submitted"-->
+
+      <button type="submit"
+              class="btn btn-primary"
+              (click)="submit()"
+      >Log in
+      </button>
+
+      <div>OR</div>
+
+      <div class="google">
+        Google
+      </div>
+    </div>
+  </form>
+</div>
