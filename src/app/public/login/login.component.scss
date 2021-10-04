@@ -11,30 +11,50 @@ form {
   border-radius: 3px;
   box-shadow: 0 0 5px rgba(0,0,0,0.3);
   text-align: center;
+  height: 30rem;
 
   h4 {
     padding: 30px 0 30px 0;
   }
 }
 
-.form-control input {
-  border: 2px solid #dfe1e6;
-  border-radius: 3px;
+.bg-success {
+  margin-top: 1rem;
+}
 
+.or {
+  margin: 20px 0 20px 0;
+}
+
+.mb-3 {
   width: 90%;
-  height: 2.5rem;
-  margin-bottom: 10px;
+  margin: 0 auto;
 }
 
 button {
-  color: #fff;
+  color: white;
   width: 90%;
-  border-radius: 5px;
-  height: 2.3rem;
-  background-color: var(--success-color);
+  cursor: pointer;
 }
 
+.google {
+  margin: 0 auto;
+  border-radius: 5px;
+  width: 90%;
+  border: 1px solid #adb5bd;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.bi-alarm {
-  font-size: 30px;
+  .google-logo {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+}
+
+.google a {
+  color: black;
+  text-decoration: none;
 }

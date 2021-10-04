@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 
 import { CookieService } from 'ngx-cookie-service';
 
-import { SharedModule } from './shared/shared.module';
+// import { SharedModule } from './shared/shared.module';
 import { PublicModule } from './public/public.module';
-import { PrivateModule } from './private/private.module';
+// import { PrivateModule } from './private/private.module';
 
 @NgModule({
   declarations: [
@@ -18,8 +18,8 @@ import { PrivateModule } from './private/private.module';
     BrowserModule,
     AppRoutingModule,
     PublicModule,
-    PrivateModule,
-    SharedModule
+    // PrivateModule,
+    // SharedModule
   ],
   providers: [
     CookieService

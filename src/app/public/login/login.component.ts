@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit {
   submitted: boolean = false;
 
   form: FormGroup = new FormGroup({
+    name: new FormControl(null, [
+      Validators.required
+    ]),
     email: new FormControl(null, [
       Validators.required,
       Validators.email
@@ -37,14 +40,15 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
 
     const user: ILogin = {
+      name: this.form.value.name,
       email: this.form.value.email,
       password: this.form.value.password
     }
 
-    this.auth.singIn$(user)
-      .subscribe((response) => {
-        console.log(response);
-      })
+    // this.auth.singIn$(user)
+    //   .subscribe((response) => {
+    //     console.log(response);
+    //   })
 
     console.log('log in', user);
   }
