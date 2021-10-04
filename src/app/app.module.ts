@@ -3,28 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './public/home/home.component';
-import { LoginComponent } from './public/login/login.component';
-import { SignupComponent } from './public/signup/signup.component';
-import { BoardsComponent } from './private/boards/boards.component';
-import { DashboardComponent } from './private/dashboard/dashboard.component';
-import { ErrorComponent } from './shared/error/error.component';
+
+import { CookieService } from 'ngx-cookie-service';
+
+import { SharedModule } from './shared/shared.module';
+import { PublicModule } from './public/public.module';
+import { PrivateModule } from './private/private.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
-    SignupComponent,
-    BoardsComponent,
-    DashboardComponent,
-    ErrorComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PublicModule,
+    PrivateModule,
+    SharedModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    CookieService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

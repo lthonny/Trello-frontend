@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { AuthService } from 'src/app/services/auth.service';
 import {ILogin} from "../../interfaces";
 
 @Component({
@@ -22,7 +23,9 @@ export class LoginComponent implements OnInit {
     ])
   });
 
-  constructor() { }
+  constructor(
+    private auth: AuthService
+  ) { }
 
   ngOnInit(): void {}
 
@@ -37,6 +40,11 @@ export class LoginComponent implements OnInit {
       email: this.form.value.email,
       password: this.form.value.password
     }
+
+    this.auth.singIn$(user)
+      .subscribe((response) => {
+        console.log(response);
+      })
 
     console.log('log in', user);
   }

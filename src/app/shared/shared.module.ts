@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
-  declarations: [],
   imports: [
-    CommonModule
+    HttpClientModule
+  ],
+  exports: [
+    HttpClientModule
+  ],
+  declarations: [
+    ErrorComponent
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,6 @@
 export interface ILogin {
-  email: string | number,
+  email: string,
   password: string | number
 }
+
+export interface IAuthResponse {}

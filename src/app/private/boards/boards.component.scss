@@ -1,0 +1,20 @@
+.wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 0 20px;
+}
+
+.boards {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .board {
+        // border: 1px solid red;
+        width: 250px;
+        height: 10rem;
+        background-color: yellow;
+    }
+}
