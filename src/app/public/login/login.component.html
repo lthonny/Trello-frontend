@@ -5,17 +5,17 @@
     <div class="wrapper">
       <h4>Log in to Trello</h4>
 
-      <div class="mb-3" [ngClass]="{invalid: form.get('name')?.touched && form.get('name')?.invalid}">
+      <!-- <div class="mb-3" [ngClass]="{invalid: form.get('name')?.touched && form.get('name')?.invalid}">
         <input id="name" class="form-control bg-light" type="text" placeholder="Enter name" formControlName="name">
         <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid" class="validation">
-<!--          <small *ngIf="form.get('name')?.errors?.required">-->
-<!--            Enter the name-->
-<!--          </small>-->
-<!--          <small *ngIf="form.get('name')?.errors?.name">-->
-<!--            Please enter a valid name-->
-<!--          </small>-->
+         <small *ngIf="form.get('name')?.errors?.required">
+           Enter the name
+         </small>
+         <small *ngIf="form.get('name')?.errors?.name">
+           Please enter a valid name
+         </small>
         </div>
-      </div>
+      </div> -->
 
       <div class="mb-3" [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}">
         <input id="email" class="form-control bg-light" type="email" placeholder="Enter email" formControlName="email">
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div class="mb-3" [ngClass]="{invalid: form.get('email')?.touched && form.get('email')?.invalid}">
+      <div class="mb-3" [ngClass]="{invalid: form.get('password')?.touched && form.get('password')?.invalid}">
         <input id="password" class="form-control bg-light" type="password" placeholder="Enter password" formControlName="password">
         <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="validation">
 <!--          <small *ngIf="form.get('password')?.errors?.required">-->

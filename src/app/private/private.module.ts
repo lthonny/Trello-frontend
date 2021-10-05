@@ -5,12 +5,14 @@ import { RouterModule } from "@angular/router";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { BoardsComponent } from "./boards/boards.component";
 import { PrivateLayoutComponent } from './private-layout/private-layout.component';
+import { BoardComponent } from './board/board.component';
 
 @NgModule({
   declarations: [
     PrivateLayoutComponent,
     BoardsComponent,
-    DashboardComponent
+    DashboardComponent,
+    BoardComponent
   ],
   imports: [
     CommonModule,

@@ -4,7 +4,7 @@ import { HttpClient} from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 
 import { TokenService } from "./token.service";
-import { ILogin } from "../interfaces";
+import { IAuthResponse, ISingIn, ISingUp } from "../interfaces";
 import { catchError, tap } from "rxjs/operators";
 
 @Injectable({
@@ -33,12 +33,12 @@ export class AuthService {
         return this.http.get(`/api/isauth`, {headers: {Authorization: `Bearer ${accessToken}`}})
     }
 
-    // public singUp$(): Observable<any> {
-    //     return this.http.post<IAuthResponse>(`/api/sign_up`, user);
-    // }
+    public singUp$(user: ISingUp): Observable<IAuthResponse> {
+        return this.http.post<IAuthResponse>(`http://localhost:5000/signup`, user);
+    }
 
-    public singIn$(user: ILogin): Observable<any> {
-        return this.http.post<ILogin>(`signin`, user)
+    public singIn$(user: ISingIn): Observable<IAuthResponse> {
+        return this.http.post<IAuthResponse>(`http://localhost:5000/signin`, user);
         // .pipe(
         //   catchError(err => this.error.handleError(err)),
         //   tap((data) => this.login$(data))

@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {CookieService} from "ngx-cookie-service";
 
+import { IRefreshResponse } from '../interfaces';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +27,7 @@ export class TokenService {
     return this.cookieService.get('refreshToken');
   }
 
-  public refreshToken$(): Observable<any> {
-    return this.http.get<any>(`/api/refresh`);
+  public refreshToken$(): Observable<IRefreshResponse> {
+    return this.http.get<IRefreshResponse>(`/refresh`);
   }
 }

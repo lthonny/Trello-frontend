@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { IAuthResponse, ISingIn } from 'src/app/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
-import {ILogin} from "../../interfaces";
 
 @Component({
   selector: 'app-login',
@@ -13,9 +13,6 @@ export class LoginComponent implements OnInit {
   submitted: boolean = false;
 
   form: FormGroup = new FormGroup({
-    name: new FormControl(null, [
-      Validators.required
-    ]),
     email: new FormControl(null, [
       Validators.required,
       Validators.email
@@ -39,16 +36,13 @@ export class LoginComponent implements OnInit {
 
     this.submitted = true;
 
-    const user: ILogin = {
-      name: this.form.value.name,
+    const user: ISingIn = {
       email: this.form.value.email,
       password: this.form.value.password
     }
 
-    // this.auth.singIn$(user)
-    //   .subscribe((response) => {
-    //     console.log(response);
-    //   })
+    this.auth.singIn$(user)
+      .subscribe((response: IAuthResponse) => console.log('response login user: ', response));
 
     console.log('log in', user);
   }
