@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { Router } from '@angular/router';
 import { IAuthResponse, ISingIn } from 'src/app/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
+// import { ErrorService } from 'src/app/services/error.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
 
   submitted: boolean = false;
+  message: string = '';
 
   form: FormGroup = new FormGroup({
     email: new FormControl(null, [
@@ -24,7 +27,9 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
+    // public errorService: ErrorService
   ) { }
 
   ngOnInit(): void {}
@@ -42,8 +47,9 @@ export class LoginComponent implements OnInit {
     }
 
     this.auth.singIn$(user)
-      .subscribe((response: IAuthResponse) => console.log('response login user: ', response));
-
-    console.log('log in', user);
+      .subscribe((response: IAuthResponse) => {
+        this.form.reset();
+        this.router.navigate(['private', 'boards']);
+      });
   }
 }

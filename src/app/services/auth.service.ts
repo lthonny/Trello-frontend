@@ -6,6 +6,7 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { TokenService } from "./token.service";
 import { IAuthResponse, ISingIn, ISingUp } from "../interfaces";
 import { catchError, tap } from "rxjs/operators";
+// import { ErrorService } from "./error.service";
 
 @Injectable({
     providedIn: 'root'
@@ -24,9 +25,8 @@ export class AuthService {
     constructor(
         private http: HttpClient,
         private tokenService: TokenService
-    ){
-        
-    }
+        // private error: ErrorService
+    ){}
 
     public isAuth$(): Observable<any> {
         const accessToken = this.tokenService.getToken();
@@ -38,9 +38,9 @@ export class AuthService {
     }
 
     public singIn$(user: ISingIn): Observable<IAuthResponse> {
-        return this.http.post<IAuthResponse>(`http://localhost:5000/signin`, user);
+        return this.http.post<IAuthResponse>(`http://localhost:5000/signin`, user)
         // .pipe(
-        //   catchError(err => this.error.handleError(err)),
+        //   catchError(err => this.error.handleError(err))
         //   tap((data) => this.login$(data))
         // )
     }

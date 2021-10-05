@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  public columns:any = [
+    {"title": "To Do"},
+    {"title": "In Progress"},
+    {"title": "Coded"},
+    {"title": "Testing"},
+    {"title": "Done"}
+  ];
+
   constructor() { }
 
   ngOnInit(): void {

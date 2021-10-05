@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IAuthResponse, ISingUp } from 'src/app/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -27,13 +28,14 @@ export class SignupComponent implements OnInit {
   });
 
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
   ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   submit() {
-    if(this.form.invalid) {
+    if (this.form.invalid) {
       return;
     }
 
@@ -46,8 +48,9 @@ export class SignupComponent implements OnInit {
     }
 
     this.auth.singUp$(user)
-      .subscribe((response: IAuthResponse) => console.log('response reg user: ', response));
-
-    console.log('reg in', user);
+      .subscribe((response: IAuthResponse) => {
+        this.form.reset();
+        this.router.navigate(['/login']);
+      });
   }
 }
