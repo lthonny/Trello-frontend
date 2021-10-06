@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { PrivateModule } from './private/private.module';
 
 import { MaterialModule } from './material.module';
+import { PrivateModule } from './private/private.module';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,8 @@ import { MaterialModule } from './material.module';
     PublicModule,
     MaterialModule,
     FontAwesomeModule,
-    BrowserAnimationsModule
-    // PrivateModule,
+    BrowserAnimationsModule,
+    PrivateModule,
     // SharedModule
   ],
   providers: [

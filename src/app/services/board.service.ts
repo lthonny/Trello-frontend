@@ -18,10 +18,10 @@ export class BoardService {
     }
 
     public createBoard$(board: IBoard): any {
-        return this.http.post(`${environment.api}/boards/create`, {name: board});
+        return this.http.post(`${environment.api}/board/create`, {name: board});
     }
 
     public deleteBoard$(id: string): any {
-        return this.http.delete(`${environment.api}/boards/${id}`);
+        return this.http.delete(`${environment.api}/board/${id}`);
     }
 }
