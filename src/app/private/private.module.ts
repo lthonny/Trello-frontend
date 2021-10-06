@@ -6,6 +6,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { BoardsComponent } from "./boards/boards.component";
 import { PrivateLayoutComponent } from './private-layout/private-layout.component';
 import { BoardComponent } from './board/board.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,8 @@ import { BoardComponent } from './board/board.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
 
     RouterModule.forChild([
       // {

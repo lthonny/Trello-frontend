@@ -18,3 +18,33 @@
         background-color: yellow;
     }
 }
+
+.delete {
+    cursor: pointer;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+
+    .card-text {
+        cursor: pointer;
+    }
+}
+
+.form {
+    display: flex;
+
+    border-radius: 0 10px 10px 0px;
+    margin: 20px 0;
+
+    button {
+        margin-left: 10px;
+        width: 30px;
+        font-size: 30px;
+        // border: 1px solid red;
+        background-color: #fff;
+        border: none;
+        // border-radius: 0 10px 10px 0px;
+    }
+}

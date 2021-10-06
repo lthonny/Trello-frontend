@@ -6,9 +6,16 @@ import { AppComponent } from './app.component';
 
 import { CookieService } from 'ngx-cookie-service';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // import { SharedModule } from './shared/shared.module';
 import { PublicModule } from './public/public.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { PrivateModule } from './private/private.module';
+
+
+import { MatSliderModule } from '@angular/material/slider';
+
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -18,8 +25,12 @@ import { PublicModule } from './public/public.module';
     BrowserModule,
     AppRoutingModule,
     PublicModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
     // PrivateModule,
     // SharedModule
+    MatSliderModule,
+    MatIconModule
   ],
   providers: [
     CookieService

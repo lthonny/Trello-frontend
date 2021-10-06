@@ -1,12 +1,52 @@
 header {
-    height: 5vh;
+    height: 4.5vh;
     width: 100%;
+    padding: 0 10px 0 10px;
 
-    background-color: #d2d8e2;
+    background-color: #697178;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .search {
+        color: #fff;
+        input{
+            color: #fff;
+            background-color: #bcd5e0;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            width: 15rem;
+            padding-left: 30px;
+            height: 2rem;
+        }
+
+
+    }
+
+    .search-icon {
+        color: yellow;
+        width: 20px;
+        height: 5rem;
+    }
+
+    .avatar {
+        color: #172b4d;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+        border: 1px solid #dfe1e6;
+        background-color: #dfe1e6;
+        border-radius: 100%;
+        cursor: pointer;
+    }
 }
 
 .body {
     height: 95vh;
     width: 100%;
-    background-image: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2400x1600/2e1fb0a799f60366577d27f34f98aed8/photo-1627719736178-dfadf8f370d9.jpg");
+    // background-image: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/2400x1600/2e1fb0a799f60366577d27f34f98aed8/photo-1627719736178-dfadf8f370d9.jpg");
 }

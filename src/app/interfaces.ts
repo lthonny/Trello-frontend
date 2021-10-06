@@ -30,7 +30,7 @@ export interface IRefreshResponse {
 }
 
 export interface IBoard {
-  title: string
+  name: string
 }
 
 export interface IBoardResponse {}
