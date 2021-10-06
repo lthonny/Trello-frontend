@@ -12,10 +12,7 @@ import { PublicModule } from './public/public.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { PrivateModule } from './private/private.module';
 
-
-import { MatSliderModule } from '@angular/material/slider';
-
-import {MatIconModule} from '@angular/material/icon';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -25,12 +22,11 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserModule,
     AppRoutingModule,
     PublicModule,
+    MaterialModule,
     FontAwesomeModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
     // PrivateModule,
     // SharedModule
-    MatSliderModule,
-    MatIconModule
   ],
   providers: [
     CookieService

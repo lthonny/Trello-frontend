@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { IBoard } from "../interfaces";
+import { environment } from "src/environments/environment";
 
 @Injectable({
     providedIn: 'root'
@@ -13,14 +14,14 @@ export class BoardService {
     ){}
 
     public getBoards$(): any {
-        return this.http.get('http://localhost:5000/boards');
+        return this.http.get(`${environment.api}/boards`);
     }
 
     public createBoard$(board: IBoard): any {
-        return this.http.post('http://localhost:5000/boards/create', {name: board});
+        return this.http.post(`${environment.api}/boards/create`, {name: board});
     }
 
     public deleteBoard$(id: string): any {
-        return this.http.delete(`http://localhost:5000/boards/${id}`);
+        return this.http.delete(`${environment.api}/boards/${id}`);
     }
 }
