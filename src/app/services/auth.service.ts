@@ -15,6 +15,8 @@ import { environment } from "src/environments/environment";
 })
 export class AuthService {
     private _isAuthorized = new BehaviorSubject<boolean>(false);
+    private id: any;
+    public userName: string = '';
 
     get isAuthorized$(): Observable<boolean> {
         return this._isAuthorized.asObservable();
@@ -26,13 +28,19 @@ export class AuthService {
 
     constructor(
         private http: HttpClient,
-        private tokenService: TokenService
+        private tokenService: TokenService,
         // private error: ErrorService
-    ){}
+    ){
+      this.isAuth$().subscribe(() => {
+        this._isAuthorized.next(true);
+      }, () => {
+        this._isAuthorized.next(false);
+      })
+    }
 
     public isAuth$(): Observable<any> {
         const accessToken = this.tokenService.getToken();
-        return this.http.get(`/api/isauth`, {headers: {Authorization: `Bearer ${accessToken}`}})
+        return this.http.get(`${environment.api}/isauth`, {headers: {Authorization: `Bearer ${accessToken}`}})
     }
 
     public singUp$(user: ISingUp): Observable<IAuthResponse> {
@@ -40,22 +48,28 @@ export class AuthService {
     }
 
     public singIn$(user: ISingIn): Observable<IAuthResponse> {
-        return this.http.post<IAuthResponse>(`${environment.api}/signin`, user)
-        // .pipe(
-        //   catchError(err => this.error.handleError(err))
-        //   tap((data) => this.login$(data))
-        // )
+        return this.http.post<IAuthResponse>(`${environment.api}/login`, user)
+        .pipe(
+          // catchError(err => this.error.handleError(err)),
+          tap((data) => this.login$(data))
+        )
     }
 
-    // public login$(): Observable<any> {
-        // const {accessToken} = data;
-        // localStorage.setItem('token', accessToken);
-        // this._isAuthorized.next(true);
-    // } 
+    public login$(data: IAuthResponse) {
+        this.id = data.user.id;
+        const {accessToken} = data;
+        this.userName = data.user.name;
+        localStorage.setItem('token', accessToken);
+        this._isAuthorized.next(true);
+    }
+
+    public userId() {
+      return this.id;
+    }
 
     public logout$(): Observable<any> {
         localStorage.removeItem('token');
-        this._isAuthorized.next(true);
+        this._isAuthorized.next(false);
         return this.http.post(`${environment.api}/logout`, {});
     }
 }

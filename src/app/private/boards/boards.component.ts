@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IBoard } from 'src/app/interfaces';
 import { BoardService } from 'src/app/services/board.service';
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-boards',
@@ -21,17 +22,18 @@ export class BoardsComponent implements OnInit {
 
   constructor(
     public boards: BoardService,
-    private router: Router
+    private router: Router,
+    public auth: AuthService
   ) { }
 
   ngOnInit(): void {
+    // console.log(this.auth.userId());
     this.boards.getBoards$().subscribe((board: any) => {
       this.boardsAr = board;
     })
   }
 
   boardPage() {
-    // console.log('page')
     this.router.navigate(['private', 'dashboard']);
   }
 

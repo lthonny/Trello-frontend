@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { Router } from '@angular/router';
 import { IAuthResponse, ISingIn } from 'src/app/interfaces';
 import { AuthService } from 'src/app/services/auth.service';
+import {TokenService} from "../../services/token.service";
 // import { ErrorService } from 'src/app/services/error.service';
 
 @Component({
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    public tokenService: TokenService
     // public errorService: ErrorService
   ) { }
 
@@ -48,6 +50,7 @@ export class LoginComponent implements OnInit {
 
     this.auth.singIn$(user)
       .subscribe((response: IAuthResponse) => {
+        this.tokenService.setToken(response.accessToken);
         this.form.reset();
         this.router.navigate(['private', 'boards']);
       });

@@ -4,15 +4,18 @@ import { RouterModule } from "@angular/router";
 
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { BoardsComponent } from "./boards/boards.component";
-import { BoardComponent } from './board/board.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderLayoutComponent } from './header-layout/header-layout.component';
+
+import {AuthGuard} from "../services/auth.guard";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import {AuthInterceptor} from "../services/auth.interceptor";
 
 @NgModule({
   declarations: [
     BoardsComponent,
     DashboardComponent,
-    BoardComponent,
     HeaderLayoutComponent
   ],
   imports: [
@@ -24,14 +27,22 @@ import { HeaderLayoutComponent } from './header-layout/header-layout.component';
       {
         path: '', component: HeaderLayoutComponent, children: [
           { path: '', redirectTo: 'login', pathMatch: 'full' },
-          { path: 'boards', component: BoardsComponent },
-          { path: 'dashboard', component: DashboardComponent }
+          { path: 'boards', component: BoardsComponent, canActivate: [AuthGuard] },
+          { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
         ]
       }
     ])
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    // HttpClientModule
+  ],
+  providers: [
+    // {
+    //   provide : HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptor,
+    //   multi: true,
+    // }
   ]
 })
 export class PrivateModule { }

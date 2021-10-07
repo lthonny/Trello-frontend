@@ -9,16 +9,20 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderLayoutComponent implements OnInit {
 
+  public userName: string = '';
+
   constructor(
-    private auth: AuthService,
+    public auth: AuthService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    this.userName = this.auth.userName.split('', 2).join('');
   }
 
   logout() {
-    this.auth.logout$().subscribe(() => {});
-    this.router.navigate(['/login']);
+    this.auth.logout$().subscribe(() => {
+      this.router.navigate(['/login']);
+    });
   }
 }

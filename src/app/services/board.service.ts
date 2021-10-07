@@ -8,17 +8,19 @@ import { environment } from "src/environments/environment";
     providedIn: 'root'
 })
 export class BoardService {
-    
+
     constructor(
         private http: HttpClient
     ){}
 
     public getBoards$(): any {
-        return this.http.get(`${environment.api}/boards`);
+        // console.log('id');
+        const id = 1;
+        return this.http.get(`${environment.api}/boards/${id}`);
     }
 
     public createBoard$(board: IBoard): any {
-        return this.http.post(`${environment.api}/board/create`, {name: board});
+        return this.http.post(`${environment.api}/board/create/${1}`, {name: board});
     }
 
     public deleteBoard$(id: string): any {

@@ -1,19 +1,17 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 
-import { CookieService } from 'ngx-cookie-service';
+import {CookieService} from 'ngx-cookie-service';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-// import { SharedModule } from './shared/shared.module';
-import { PublicModule } from './public/public.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { PrivateModule } from './private/private.module';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {PublicModule} from './public/public.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { MaterialModule } from './material.module';
-import { PrivateModule } from './private/private.module';
+import {MaterialModule} from './material.module';
+import {PrivateModule} from "./private/private.module";
 
 @NgModule({
   declarations: [
@@ -22,10 +20,10 @@ import { PrivateModule } from './private/private.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PublicModule,
     MaterialModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    PublicModule,
     PrivateModule,
     // SharedModule
   ],
@@ -36,4 +34,5 @@ import { PrivateModule } from './private/private.module';
     AppComponent
   ]
 })
-export class AppModule { }
+export class AppModule {
+}
